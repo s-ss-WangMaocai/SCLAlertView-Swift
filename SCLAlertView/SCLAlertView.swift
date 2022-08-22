@@ -404,6 +404,12 @@ open class SCLAlertView: UIViewController {
         
         // Set background frame
         view.frame.size = sz
+        
+        /**
+         * view frame更改时，需要同步更新baseView frame
+         * 否则会导致已经弹出alert后再旋转屏幕，baseView比view小，造成按钮不可点击等异常情况
+         */
+        baseView.frame = view.frame
 
         let defaultTopOffset: CGFloat = 32
 
